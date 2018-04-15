@@ -50,9 +50,17 @@
 
 
     <h2>Artistes présents sur cet album</h2>
+    
+    @php ($artists = []) @endphp
+
     <ul>
-        @foreach($album->artistes as $artiste)
-            <li><a href='/artiste/{{$artiste->id}}'>{{$artiste->nom}}</a></li>
+        @foreach($album->chansons as $chanson)
+            @foreach($chanson->apparaitdans as $artiste)
+                @if(!in_array($artiste->nom, $artists))
+                    <li><a href='/artiste/{{$artiste->id}}'>{{$artiste->nom}}</a></li>
+                    @php ($artists[] = $artiste->nom) @endphp
+                @endif
+            @endforeach
         @endforeach
     </ul>
 @endsection

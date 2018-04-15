@@ -11,6 +11,14 @@
     @endif
 
 
+    <!--Tirée de l'album-->
+    @if($chanson->album == false)
+        <p> </p>
+    @else
+        <p>Tirée de l'album : <a href='/album/{{$chanson->album->id}}'>{{$chanson->album->titre}}</a></p>
+    @endif 
+
+
     <!--Description-->
     @if($chanson->description == false)
         <p> </p>
@@ -39,5 +47,11 @@
 
 
     <h2>Artistes présents sur cette chanson</h2>
+
+    <ul>
+        @foreach($chanson->apparaitdans as $artiste)
+        <li><a href='/artiste/{{$artiste->id}}'>{{$artiste->nom}}</a></li>
+        @endforeach
+    </ul>
     
 @endsection

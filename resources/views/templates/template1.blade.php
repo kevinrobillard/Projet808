@@ -16,7 +16,15 @@
         <a href="/">Fil d'actualités</a><br>
         <a href="/nouveautes">Nouveautés</a><br>
         <a href="/playlists">Playlists</a><br>
-        <a href="/parcourir/artistes">Parcourir</a>
+        <a href="/parcourir/artistes">Parcourir</a><br>
+        <br>
+        @guest
+            <a href="/login">Login</a>
+        @endguest
+        @auth
+            <span>{{Auth::user()->name}} - ({{Auth::user()->email}})</span><br>
+            <a href="/logout">Logout</a>
+        @endauth
     </nav>
     
     <div class="container">

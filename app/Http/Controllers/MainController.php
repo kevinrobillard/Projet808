@@ -2,9 +2,14 @@
 
 namespace App\Http\Controllers;
 
+
 use App\Artiste;
 use App\Album;
 use App\Chanson;
+use App\Playlist;
+use App\User;
+use Auth;
+use Redirect;
 use Illuminate\Http\Request;
 
 class MainController extends Controller
@@ -14,11 +19,29 @@ class MainController extends Controller
     }
     
     public function nouveautes(){
-        return view('nouveautes');
+        $lastAlbums = Album::all()->sortByDesc("dateSortie")->take(9);
+        return view('nouveautes', ['lastAlbums' => $lastAlbums]);
     }
     
     public function playlists(){
+        if(Auth::user()){
+            $playlists = Playlist::all()->where('idUser', '=', Auth::user()->id);
+            return view('playlists', ['playlists' => $playlists]);
+        }
         return view('playlists');
+    }
+    
+    public function playlist($id){
+        if(Auth::user()){
+            $playlist = Playlist::find($id);
+            if($playlist == false){
+                return redirect('404');
+            }
+            return view('playlist', ['playlist' => $playlist]);
+        }
+        else{
+            return view('playlists');
+        }
     }
     
     public function parcourirArtistes(){
@@ -58,5 +81,10 @@ class MainController extends Controller
             return redirect('404');
         }
         return view('chanson', ['chanson' => $chanson]);
+    }
+    
+    public function logout(){
+        Auth::logout(); // log the user out of our application
+        return Redirect::to('/'); // redirect the user to the login screen
     }
 }
