@@ -16,15 +16,18 @@ use Illuminate\Http\Request;
 class MainController extends Controller
 {
     public function index(){
-        $followedArtistsAlbums = DB::table('album')
-                                ->join('artiste', 'album.idArtiste', '=', 'artiste.id')
-                                ->join('suit', 'artiste.id', '=', 'suit.idArtiste')
-                                ->join('users', 'suit.idUser', '=', 'users.id')
-                                ->select('album.*')
-                                ->where('idUser', '=', Auth::user()->id)
-                                ->orderBy("dateSortie", "desc")
-                                ->get();
-        return view('index', ['followedArtistsAlbums' => $followedArtistsAlbums]);
+        if(Auth::user()){
+            $followedArtistsAlbums = DB::table('album')
+                                    ->join('artiste', 'album.idArtiste', '=', 'artiste.id')
+                                    ->join('suit', 'artiste.id', '=', 'suit.idArtiste')
+                                    ->join('users', 'suit.idUser', '=', 'users.id')
+                                    ->select('album.*')
+                                    ->where('idUser', '=', Auth::user()->id)
+                                    ->orderBy("dateSortie", "desc")
+                                    ->get();
+            return view('index', ['followedArtistsAlbums' => $followedArtistsAlbums]);
+        }
+        return view('index');
     }
     
     public function nouveautes(){
