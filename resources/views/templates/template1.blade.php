@@ -23,9 +23,7 @@
       <li class="login"><a href="/login">Login</a></li> 
     @endguest
     @auth
-        <li class="login">    <span>{{Auth::user()->name}} - ({{Auth::user()->email}})</span><br>
-            <a href="/logout">Logout</a>
-        </li>    
+        <li class="login"><a href="/logout">Logout</a></li>    
     @endauth
   </ul>
 </header>

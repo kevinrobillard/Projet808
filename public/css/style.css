@@ -4,7 +4,17 @@ body {
 }
 
 a {
-  color: #000;
+    color: #000;
+    font-family: roboto condensed;
+    font-weight: bold;
+    font-size: 20px;
+    text-transform: uppercase;
+    text-decoration: none;
+}
+
+.date{
+    margin: 0;
+    font-family: roboto light;
 }
 
 img {
@@ -12,6 +22,9 @@ img {
 	height: 250px;
 }
 
+h2{
+    font-family: roboto light;
+}
 
 /* header */
 
@@ -195,6 +208,7 @@ footer {
 
 footer p {
     margin: 0;
+text-transform: uppercase;
 }
 
 
