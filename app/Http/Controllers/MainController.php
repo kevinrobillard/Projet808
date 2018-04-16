@@ -10,12 +10,21 @@ use App\Playlist;
 use App\User;
 use Auth;
 use Redirect;
+use DB;
 use Illuminate\Http\Request;
 
 class MainController extends Controller
 {
     public function index(){
-        return view('index');
+        $followedArtistsAlbums = DB::table('album')
+                                ->join('artiste', 'album.idArtiste', '=', 'artiste.id')
+                                ->join('suit', 'artiste.id', '=', 'suit.idArtiste')
+                                ->join('users', 'suit.idUser', '=', 'users.id')
+                                ->select('album.*')
+                                ->where('idUser', '=', Auth::user()->id)
+                                ->orderBy("dateSortie", "desc")
+                                ->get();
+        return view('index', ['followedArtistsAlbums' => $followedArtistsAlbums]);
     }
     
     public function nouveautes(){
