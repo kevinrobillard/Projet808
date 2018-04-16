@@ -5,7 +5,7 @@
     <h2>NOUVEAUTES</h2>
     
         @foreach($lastAlbums as $album)
-            <div>
+            <div class="news">
                 <a href='/album/{{$album->id}}'><img src='{{$album->pochette}}'></a><br>
                 <a href='/album/{{$album->id}}'>{{$album->titre}}</a><br>
                 <a href='/artiste/{{$album->artiste->id}}'>{{$album->artiste->nom}}</a>
