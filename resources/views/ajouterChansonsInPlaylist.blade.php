@@ -15,15 +15,23 @@
                 $alreadyInPlaylist = []
                 )@endphp
                 
+                
                @foreach($playlist->contient as $morceau)
                     @php(
                         $alreadyInPlaylist [] = $morceau->id
                     )
                 @endforeach
                 
+                
+                @if(empty($alreadyInPlaylist))
+                    @php(
+                            $alreadyInPlaylist = []
+                        )
+                @endif
+                
+                
                 @if(!in_array($chanson->id, $alreadyInPlaylist))  
                     <input type='submit' name='ajouterChansonsDansPlaylist' value='Ajouter'/>
-                    
                  @else
                     <span>Ce morceau est déjà présent dans cette playlist</span>
                 @endif

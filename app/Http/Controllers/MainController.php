@@ -79,9 +79,12 @@ class MainController extends Controller
     }
     
     public function ajouterChansonsInPlaylist($idPlaylist){
-        $all = Chanson::all()->sortBy("titre");
-        $playlist = Playlist::find($idPlaylist);
-        return view('ajouterChansonsInPlaylist', ['chansons' => $all, 'playlist' => $playlist]);
+        if(Auth::user()){
+            $all = Chanson::all()->sortBy("titre");
+            $playlist = Playlist::find($idPlaylist);
+            return view('ajouterChansonsInPlaylist', ['chansons' => $all, 'playlist' => $playlist]);
+        }
+        return view('playlists');
     }
     
     public function insertChansonsInPlaylist(Request $request){
