@@ -11,9 +11,7 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+
 
 Auth::routes();
 
@@ -21,6 +19,8 @@ Route::get('/', 'MainController@index');
 Route::get('/nouveautes', 'MainController@nouveautes');
 Route::get('/playlists', 'MainController@playlists');
 Route::get('/playlist/{id}', 'MainController@playlist')->where('id', '[0-9]+');
+Route::get('/playlist/creer', 'MainController@creerPlaylist');
+Route::post('/playlist/insertPlaylist', 'MainController@insertPlaylist');
 Route::get('/parcourir/artistes', 'MainController@parcourirArtistes');
 Route::get('/parcourir/albums', 'MainController@parcourirAlbums');
 Route::get('/parcourir/chansons', 'MainController@parcourirChansons');

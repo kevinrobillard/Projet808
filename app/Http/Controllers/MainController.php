@@ -56,6 +56,28 @@ class MainController extends Controller
         }
     }
     
+    public function creerPlaylist(){
+        if(Auth::user()){
+            return view('creerPlaylist');
+        }
+        return view('playlists');
+    }
+    
+    public function insertPlaylist(Request $request){
+        if(Auth::user()){
+            $request->validate([
+                'titre' => 'required|min:1|max:50',
+            ]);
+            
+            $newPlaylist = new Playlist;
+	        $newPlaylist->titre = $request->input('titre');
+            $newPlaylist->idUser = Auth::user()->id;
+	        $newPlaylist->save();
+            return redirect('/playlist/'.$newPlaylist->id);
+        }
+        return view('playlists');
+    }
+    
     public function parcourirArtistes(){
         $all = Artiste::all();
         return view('parcourirArtistes', ['artistes' => $all]);

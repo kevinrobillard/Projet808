@@ -5,6 +5,8 @@
     @auth
         <h1>MES PLAYLISTS</h1>
 
+        <a href='/playlist/creer'>CREER UNE PLAYLIST<img src=''></a>
+
         <ul>
             @foreach($playlists as $playlist)
             <li><a href='/playlist/{{$playlist->id}}'>{{$playlist->titre}}</a></li>

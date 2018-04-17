@@ -13,4 +13,5 @@ class Playlist extends Model
     public function contient(){
         return $this->belongsToMany('App\Chanson', 'contient', 'idPlaylist', 'idChanson');
     }
+    
 }
