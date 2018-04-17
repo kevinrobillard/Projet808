@@ -1,6 +1,6 @@
   
-    <nav>
-        <a href="artistes">Par artistes</a><br>
-        <a href="albums">Par albums</a><br>
-        <a href="chansons">Par chansons</a>
-    </nav>
+    <ul id="nav">
+        <li><a href="artistes">Artistes</a></li>
+        <li><a href="albums">Albums</a></li>
+        <li><a href="chansons">Chansons</a></li>
+    </ul>

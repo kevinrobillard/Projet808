@@ -3,7 +3,7 @@
 @section('content')
 
     <h1>PARCOURIR</h1>
-
+    <p class="trier">Trier par:</p>
     @include('_parcourirNavbar')
 
     <ul>

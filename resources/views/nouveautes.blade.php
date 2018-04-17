@@ -2,7 +2,7 @@
 
 @section('content')
     
-    <h2>NOUVEAUTES</h2>
+    <h1>NOUVEAUTES</h1>
     
         @foreach($lastAlbums as $album)
             <div class="news">
