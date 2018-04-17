@@ -5,6 +5,7 @@
 
         <h1>{{$playlist->titre}}</h1>
 
+        <a href='/playlist/{{$playlist->id}}/ajouterChansonsInPlaylist'>AJOUTER DES CHANSONS<img src=''></a>
 
             @foreach($playlist->contient as $chanson)
                 <div>

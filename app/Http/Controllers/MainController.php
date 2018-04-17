@@ -78,18 +78,35 @@ class MainController extends Controller
         return view('playlists');
     }
     
+    public function ajouterChansonsInPlaylist($idPlaylist){
+        $all = Chanson::all()->sortBy("titre");
+        $playlist = Playlist::find($idPlaylist);
+        return view('ajouterChansonsInPlaylist', ['chansons' => $all, 'playlist' => $playlist]);
+    }
+    
+    public function insertChansonsInPlaylist(Request $request){
+        if(Auth::user()){
+            DB::table('contient')->insert([
+                'idPlaylist' => $request->input('idPlaylist'), 
+                'idChanson' => $request->input('idChanson')
+            ]);
+            return back();
+        }
+        return view('playlists');
+    }
+    
     public function parcourirArtistes(){
-        $all = Artiste::all();
+        $all = Artiste::all()->sortBy("nom");
         return view('parcourirArtistes', ['artistes' => $all]);
     }
     
     public function parcourirAlbums(){
-        $all = Album::all();
+        $all = Album::all()->sortBy("titre");
         return view('parcourirAlbums', ['albums' => $all]);
     }
     
     public function parcourirChansons(){
-        $all = Chanson::all();
+        $all = Chanson::all()->sortBy("titre");
         return view('parcourirChansons', ['chansons' => $all]);
     }
     
