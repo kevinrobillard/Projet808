@@ -6,10 +6,13 @@
     <p class="trier">Trier par:</p>
     @include('_parcourirNavbar')
 
-    <ul>
+    
         @foreach($artistes as $artiste)
-            <li><a href='/artiste/{{$artiste->id}}'>{{$artiste->nom}}</a></li>
+            <div class="news">
+                <a href='/artiste/{{$artiste->id}}'><img src='{{$artiste->photo}}'></a><br>
+                <a href='/artiste/{{$artiste->id}}'>{{$artiste->nom}}</a>
+            </div>
         @endforeach
-    </ul>
+    
 
 @endsection

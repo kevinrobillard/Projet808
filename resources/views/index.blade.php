@@ -3,7 +3,7 @@
 @section('content')
 
     @auth
-        <h1>FIL D'ACTUALITES</h1>
+        <h1>FIL D'ACTUALITÉS</h1>
 
             @foreach($followedArtistsAlbums as $album)
                 
@@ -15,10 +15,10 @@
                         @php ($dates[] = $album->dateSortie) @endphp
                     @endif
         
-                    <img src='{{$album->pochette}}'/><br>
-                    <a href='/album/{{$album->id}}'>{{$album->titre}}</a><br>
+                    <a  href='/album/{{$album->id}}'><img src='{{$album->pochette}}'/></a><br>
+                    <a  href='/album/{{$album->id}}'>{{$album->titre}}</a><br>
                      @php ($artiste = App\Artiste::find($album->idArtiste)) @endphp
-                    <a href='/artiste/{{$artiste->id}}'>{{$artiste->nom}}</a>
+                    <a class="artistealbum" href='/artiste/{{$artiste->id}}'>{{$artiste->nom}}</a>
                 </div>
             @endforeach
 

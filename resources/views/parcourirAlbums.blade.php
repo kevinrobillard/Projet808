@@ -6,10 +6,13 @@
     <p class="trier">Trier par:</p>
     @include('_parcourirNavbar')
 
-    <ul>
+
         @foreach($albums as $album)
-            <li><a href='/album/{{$album->id}}'>{{$album->titre}}</a></li>
+            <div class="news">
+                <a href='/album/{{$album->id}}'><img src='{{$album->pochette}}'></a><br>
+                <a href='/artiste/{{$album->artiste->id}}'>{{$album->artiste->nom}} - </a> 
+                <a href='/album/{{$album->id}}'>{{$album->titre}}</a>
+            </div>
         @endforeach
-    </ul>
 
 @endsection

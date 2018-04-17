@@ -26,7 +26,6 @@ img {
 
 h1{
     font-family: roboto light;
-    margin-bottom: 20px;
     margin-bottom: 30px;
 }
 
@@ -37,6 +36,12 @@ ul{
     margin-top: 5px;
 }
 
+h2{
+    margin-top: 50px;
+    font-family: roboto thin;
+    font-size: 17px;
+    text-transform: uppercase;
+}
 
 /* header */
 
@@ -184,6 +189,43 @@ ul#nav a{
 
 
 
+div.container {
+    text-align: center;
+    position: relative;
+    padding-bottom: 30px;
+}    
+
+.artistes{
+    padding: 30px;
+}
+
+
+.artistealbum{  
+    font-family: roboto thin;
+
+}
+
+.icones{
+    height: 25px;
+    display:block;
+    margin-left:auto;
+    margin-right:auto;
+}
+
+.titrealbum{
+    text-transform: uppercase;
+    margin-top: 40px;
+    margin-bottom: 10px;
+}
+
+.infos{
+    color: black;
+    font-family: roboto medium;
+}
+
+.infos2{
+    font-family: roboto light;
+}
 /* FOOTER */
 
 footer {
@@ -222,6 +264,36 @@ footer p {
   }
 }
 
+html {
+  height: 100%;
+}
+    
+body {
+    min-height: 100%;
+    margin: 0;
+    padding-bottom: 50px;
+    position: relative;
+}
+
+footer {
+    position: absolute;    
+    bottom: 0; 
+    left: 0; 
+    right: 0
+    }
+
+ul#nav a{
+    float: left;
+    font-family: roboto thin;
+}
+
+ul#nav li{
+    display: inline-block;
+    padding: 5px;
+}
+    
+
+
 
 /* Desktop & Tablet 48em = 768px 60em = 960px */
 
@@ -230,10 +302,10 @@ footer p {
     float: left;
   }
     
-div.container {
-    text-align: center;
-}    
-    
+h2{
+    font-size: 30px;
+}
+
 .login{
     float:left;
 }
@@ -249,13 +321,47 @@ div.container {
     display: none;
   }
     
-ul#nav a{
-    float: left;
-    font-family: roboto thin;
-}
 
 ul#nav li{
     display: inline-block;
     padding: 30px;
+}
+    
+    li.login{
+        float: right;
+    }
+
+.news{
+    float: left;
+    margin-left: 13%;
+}
+    
+    
+.section2{
+    position: absolute;
+    width: 100%;
+    margin-top: 55%;
+}
+    
+.div1{
+    float: left;
+    width: 50%;  
+}    
+    
+.div2{
+    float: left;
+    width: 50%;
+}   
+    
+
+.div3{
+    width: 100%;
+    position: absolute;
+    margin-top: 4%;
+    background-color: #ececec;
+}
+
+.imgalbum{
+    height: 500px;
     }
 }
