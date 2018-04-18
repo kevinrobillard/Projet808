@@ -292,7 +292,9 @@ ul#nav li{
     padding: 5px;
 }
     
-
+.news2{
+    margin: 25px;
+}
 
 
 /* Desktop & Tablet 48em = 768px 60em = 960px */
@@ -336,6 +338,11 @@ ul#nav li{
     margin-left: 13%;
 }
     
+.news2{
+    float: left;
+    margin-left: 3%;
+}
+  
     
 .section2{
     position: absolute;
@@ -364,4 +371,21 @@ ul#nav li{
 .imgalbum{
     height: 500px;
     }
+    
+.imgalbum2{
+    height: 200px;
+}
+
+.chansons{
+margin-top: 45%;
+        width: 100%;
+    position: absolute;
+    background-color: #ececec;
+}
+    
+.section5    {
+    position: absolute;
+    width: 100%;
+    margin-top: 78%;}
+}
 }

@@ -5,10 +5,10 @@
     @auth
         <h1>FIL D'ACTUALITÉS</h1>
 
-            @php ($dates = []) @endphp
-
             @foreach($followedArtistsAlbums as $album)
                 
+                @php ($dates = []) @endphp
+
                 <div class="news">
                     @if(!in_array($album->dateSortie, $dates))
                         {{$album->dateSortie}}<br>
