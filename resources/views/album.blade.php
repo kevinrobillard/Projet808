@@ -65,8 +65,8 @@
                     <div class="news">
                         <a href='/artiste/{{$artiste->id}}'><img src='{{$artiste->photo}}'></a><br>
                         <a href='/artiste/{{$artiste->id}}'>{{$artiste->nom}}</a>
+                    </div>
                     @php ($artists[] = $artiste->nom) @endphp
-                   </div>
                 @endif
             @endforeach
         @endforeach

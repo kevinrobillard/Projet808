@@ -12,6 +12,41 @@
     @endif
     @php ($artistOfThePage = $artiste->nom) @endphp
 
+    @auth
+    
+        @php(
+            $alreadyFollowed = []
+        )
+                
+                
+        @foreach($user->suitArtiste as $followedArtist)
+            @php(
+                $alreadyFollowed [] = $followedArtist->id
+            )
+        @endforeach
+                
+                
+        @if(empty($alreadyFollowed))
+            @php(
+                $alreadyFollowed = []
+            )
+        @endif
+    
+        @if(!in_array($artiste->id, $alreadyFollowed))
+            <form action='/artiste/{{$artiste->id}}/suivreArtiste' method='POST'>    
+                @csrf
+                <input type='hidden' name='idArtiste' value='{{$artiste->id}}'/>
+                <input type='submit' name='suivreArtiste' value='Suivre'/>
+            </form>
+        @else
+            <form action='/artiste/{{$artiste->id}}/nePlusSuivreArtiste' method='POST'>    
+                @csrf
+                <input type='hidden' name='idArtiste' value='{{$artiste->id}}'/>
+                <input type='submit' name='nePlusSuivreArtiste' value='Ne plus suivre'/>
+            </form>
+        @endif
+    @endauth
+    
     @if($artiste->dateNaissance == false)
         <p>Date de naissance : Inconnue</p>
     @else
@@ -21,7 +56,7 @@
 
 <div class="div2">
     <h2>Albums</h2>
-@if(count($artiste->albums)==0)
+    @if(count($artiste->albums)==0)
     <p>Aucun album disponible</p>    
     @else
         @foreach($artiste->albums as $album)
@@ -46,7 +81,7 @@
 <div class="div4">
     <h2>Artistes similaires</h2>
     
-    @php ($artists = [$artistOfThePage]) @endphp
+    @php ($artists = [$artistOfThePage]) 
 
  
         @foreach($artiste->apparaitdans as $chanson)
@@ -55,9 +90,9 @@
                     <div class="news">
                         <a href='/artiste/{{$artiste->id}}'><img src='{{$artiste->photo}}'></a><br>
                         <a href='/artiste/{{$artiste->id}}'>{{$artiste->nom}}</a>
-                    @php ($artists[] = $artiste->nom) @endphp
-                </div>
-                    @endif
+                        @php ($artists[] = $artiste->nom) 
+                    </div>
+                @endif
             @endforeach
         @endforeach
  

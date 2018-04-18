@@ -30,6 +30,9 @@ Route::post('/playlist/{id}/insertChansonsInPlaylist', 'MainController@insertCha
 Route::get('/playlist/{id}/supprimerChansonsInPlaylist', 'MainController@supprimerChansonsInPlaylist')->where('id', '[0-9]+');
 Route::post('/playlist/{id}/deleteChansonsInPlaylist', 'MainController@deleteChansonsInPlaylist');
 
+Route::post('/artiste/{id}/suivreArtiste', 'MainController@suivreArtiste');
+Route::post('/artiste/{id}/nePlusSuivreArtiste', 'MainController@nePlusSuivreArtiste');
+
 Route::get('/parcourir/artistes', 'MainController@parcourirArtistes');
 Route::get('/parcourir/albums', 'MainController@parcourirAlbums');
 Route::get('/parcourir/chansons', 'MainController@parcourirChansons');

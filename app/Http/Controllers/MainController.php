@@ -135,6 +135,25 @@ class MainController extends Controller
         return view('playlists');
     }
     
+    public function suivreArtiste(Request $request){
+        if(Auth::user()){
+            DB::table('suit')->insert([
+                'idUser' => Auth::user()->id,
+                'idArtiste' => $request->input('idArtiste')
+            ]);
+            return back();
+        }
+        return back();
+    }
+    
+    public function nePlusSuivreArtiste(Request $request){
+        if(Auth::user()){
+            DB::table('suit')->where('idArtiste', $request->input('idArtiste'))->where('idUser', Auth::user()->id)->delete();
+            return back();
+        }
+        return back();
+    }
+    
     public function parcourirArtistes(){
         $all = Artiste::all()->sortBy("nom");
         return view('parcourirArtistes', ['artistes' => $all]);
@@ -152,10 +171,11 @@ class MainController extends Controller
     
     public function artiste($id){
         $artiste = Artiste::find($id);
+        $user = User::find(Auth::user()->id);
         if($artiste == false){
             return redirect('404');
         }
-        return view('artiste', ['artiste' => $artiste]);
+        return view('artiste', ['artiste' => $artiste, 'user' => $user]);
     }
     
     public function album($id){
