@@ -1,7 +1,7 @@
 @extends('templates.template1')
 
 @section('content')
-    <h1>{{$chanson->titre}}</h1>
+    <h1 class="titrechanson">{{$chanson->titre}}</h1>
 
     <!--Pochette-->
     @if($chanson->pochette == false)
@@ -15,43 +15,51 @@
     @if($chanson->album == false)
         <p> </p>
     @else
-        <p>Tirée de l'album : <a href='/album/{{$chanson->album->id}}'>{{$chanson->album->titre}}</a></p>
+<div class="infoChanson">
+       <div class="chansonalbum"> Artiste<br> <a href='/album/{{$chanson->album->id}}'>{{$chanson->album->artiste->nom}}</a><br></div>
+    <div class="chansonalbum">Album<br> <a href='/album/{{$chanson->album->id}}'>{{$chanson->album->titre}}</a></div>
+</div>
     @endif 
 
 
     <!--Description-->
+    <div class="description">
     @if($chanson->description == false)
         <p> </p>
     @else
-        <p>Description : {{$chanson->description}}</p>
-    @endif    
+        <p class="titredescription">Description</p><p>{{$chanson->description}}</p>
+    @endif  
+    </div>
 
 
     <!--Duree-->
     @if($chanson->duree == false)
         <p>Durée : Inconnue</p>
     @else
-        <p>Durée : {{$chanson->duree}}</p>
+        <p>Durée<br> {{$chanson->duree}}</p>
     @endif
 
 
     <!--Paroles-->
+    <div class="paroles">
     @if($chanson->paroles == false)
         <p>Paroles : Indisponible</p>
     @else
-        <p>Paroles : {{$chanson->paroles}}</p>
+        <p class="titredescription">Paroles</p><p> {{$chanson->paroles}}</p>
     @endif
-
+    </div>
 
 
 
 
     <h2>Artistes présents sur cette chanson</h2>
 
-    <ul>
-        @foreach($chanson->apparaitdans as $artiste)
-        <li><a href='/artiste/{{$artiste->id}}'>{{$artiste->nom}}</a></li>
+            @foreach($chanson->apparaitdans as $artiste)
+        <div class="news">
+             <a href='/artiste/{{$artiste->id}}'><img src='{{$artiste->photo}}'></a><br>
+        <a href='/artiste/{{$artiste->id}}'>{{$artiste->nom}}</a>
+</div>
         @endforeach
-    </ul>
+    
     
 @endsection

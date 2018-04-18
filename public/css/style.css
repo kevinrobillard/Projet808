@@ -291,10 +291,61 @@ ul#nav li{
     display: inline-block;
     padding: 5px;
 }
-    
+
 .news2{
     margin: 25px;
 }
+
+.paroles{
+    text-align: justify;
+    padding: 4%;
+    background-color: #eaeaea;
+}
+
+.description{
+    text-align: justify;
+    padding: 4%;
+    margin-top: 20%;
+    background-color: #eaeaea;
+}
+
+.infoChanson{
+    font-family: roboto medium;
+}
+
+.chansonalbum{
+    float: left;
+    width: 50%;
+    font-family: roboto thin;
+}
+
+.chansonalbum a{
+    font-family: roboto thin;
+}
+
+.titredescription{
+    font-family: roboto medium;
+    text-align: center;
+    text-transform: uppercase;
+    text-align: center;
+}
+
+.titreparoles{
+    font-family: roboto medium;
+    text-align: center;
+    text-transform: uppercase;
+    text-align: center;
+}
+
+
+.titrechanson{
+    font-family: roboto thin;
+    text-transform: uppercase;
+    margin: 3%;
+}
+
+    
+
 
 
 /* Desktop & Tablet 48em = 768px 60em = 960px */
@@ -377,7 +428,7 @@ ul#nav li{
 }
 
 .chansons{
-margin-top: 45%;
+    margin-top: 45%;
         width: 100%;
     position: absolute;
     background-color: #ececec;
@@ -386,6 +437,24 @@ margin-top: 45%;
 .section5    {
     position: absolute;
     width: 100%;
-    margin-top: 78%;}
+    margin-top: 78%;
 }
+    
+
+.chansonalbum{
+    width: 100%;
+    margin-bottom: 1%;
 }
+
+    .description{
+        text-align: center;
+    }
+    
+    
+.description{
+    padding: 1%;
+    margin-top: 7%;
+    }
+    
+}
+

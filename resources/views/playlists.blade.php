@@ -16,7 +16,7 @@
     @endauth
 
     @guest
-        Pour avoir accès à toutes les fonctionnalités du site et pouvoir créer vos playlists, <b><a href='login'>Connectez-vous</a></b> ou <b><a href='register'>Créez un compte</a></b>
+        Pour avoir accès à toutes les fonctionnalités du site et pouvoir créer vos playlists, <b><a href='/login'>Connectez-vous</a></b> ou <b><a href='/register'>Créez un compte</a></b>
     @endguest
 
 @endsection
