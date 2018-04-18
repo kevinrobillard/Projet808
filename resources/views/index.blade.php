@@ -25,7 +25,8 @@
     @endauth
 
     @guest
-        Pour avoir accès à toutes les fonctionnalités du site et pouvoir suivre des artistes, <b><a href='/login'>Connectez-vous</a></b> ou <b><a href='/register'>Créez un compte</a></b>
+       <p class="logaccueil"> Pour avoir accès à toutes les fonctionnalités du site et pouvoir suivre des artistes vous devez être connectés.</p> 
+        <p><b><a href='/login'>Connectez-vous</a></b> <br> ou <br> <b><a href='/register'>Créez un compte</a></b></p>
     @endguest
 
 @endsection

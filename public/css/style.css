@@ -345,12 +345,18 @@ ul#nav li{
 }
 
     
-
+.logaccueil{
+        position: relative;
+    padding-bottom: 30px;
+    margin-top: 25%;
+    margin-right: 2%;
+    margin-left: 2%;
+}
 
 
 /* Desktop & Tablet 48em = 768px 60em = 960px */
 
-@media (min-width: 60em) {
+@media (min-width: 64.063em) {
   .header li {
     float: left;
   }
@@ -455,6 +461,11 @@ ul#nav li{
     padding: 1%;
     margin-top: 7%;
     }
+    
+.logaccueil{
+    margin-top: 15%;
+}
+
     
 }
 

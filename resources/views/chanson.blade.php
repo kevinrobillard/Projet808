@@ -38,7 +38,10 @@
     @else
         <p>Durée<br> {{$chanson->duree}}</p>
     @endif
-
+<audio controls="controls">
+  <source src="/music/Friday.mp3" type="audio/mp3" />
+  Votre navigateur n'est pas compatible
+</audio>
 
     <!--Paroles-->
     <div class="paroles">
