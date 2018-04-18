@@ -78,6 +78,27 @@ class MainController extends Controller
         return view('playlists');
     }
     
+    public function supprimerPlaylist(){
+        if(Auth::user()){
+            $playlists = Playlist::all()->where('idUser', '=', Auth::user()->id);
+            return view('supprimerPlaylist', ['playlists' => $playlists]);
+        }
+        return view('playlists');
+    }
+    
+    public function deletePlaylist(Request $request){
+        if(Auth::user()){
+            /*Supression des musiques de la playlist dans la table contient*/
+            DB::table('contient')->where('idPlaylist', $request->input('idPlaylist'))->delete();
+            
+            /*Suppression de la playlist en elle même*/
+            $playlistToDelete = Playlist::find($request->input('idPlaylist'));
+            $playlistToDelete->delete();
+            return back();
+        }
+        return view('playlists');
+    }
+    
     public function ajouterChansonsInPlaylist($idPlaylist){
         if(Auth::user()){
             $all = Chanson::all()->sortBy("titre");
@@ -93,6 +114,22 @@ class MainController extends Controller
                 'idPlaylist' => $request->input('idPlaylist'), 
                 'idChanson' => $request->input('idChanson')
             ]);
+            return back();
+        }
+        return view('playlists');
+    }
+    
+    public function supprimerChansonsInPlaylist($idPlaylist){
+        if(Auth::user()){
+            $playlist = Playlist::find($idPlaylist);
+            return view('supprimerChansonsInPlaylist', ['playlist' => $playlist]);
+        }
+        return view('playlists');
+    }
+    
+    public function deleteChansonsInPlaylist(Request $request){
+        if(Auth::user()){
+            DB::table('contient')->where('idPlaylist', $request->input('idPlaylist'))->where('idChanson', $request->input('idChanson'))->delete();
             return back();
         }
         return view('playlists');

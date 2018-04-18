@@ -23,8 +23,12 @@ Route::get('/playlists', 'MainController@playlists');
 Route::get('/playlist/{id}', 'MainController@playlist')->where('id', '[0-9]+');
 Route::get('/playlist/creer', 'MainController@creerPlaylist');
 Route::post('/playlist/insertPlaylist', 'MainController@insertPlaylist');
+Route::get('/playlist/supprimer', 'MainController@supprimerPlaylist');
+Route::post('/playlist/deletePlaylist', 'MainController@deletePlaylist');
 Route::get('/playlist/{id}/ajouterChansonsInPlaylist', 'MainController@ajouterChansonsInPlaylist')->where('id', '[0-9]+');
 Route::post('/playlist/{id}/insertChansonsInPlaylist', 'MainController@insertChansonsInPlaylist');
+Route::get('/playlist/{id}/supprimerChansonsInPlaylist', 'MainController@supprimerChansonsInPlaylist')->where('id', '[0-9]+');
+Route::post('/playlist/{id}/deleteChansonsInPlaylist', 'MainController@deleteChansonsInPlaylist');
 
 Route::get('/parcourir/artistes', 'MainController@parcourirArtistes');
 Route::get('/parcourir/albums', 'MainController@parcourirAlbums');

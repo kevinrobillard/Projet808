@@ -6,6 +6,7 @@
         <h1>MES PLAYLISTS</h1>
 
         <a href='/playlist/creer'>CREER UNE PLAYLIST<img src=''></a>
+        <a href='/playlist/supprimer'>SUPPRIMER UNE PLAYLIST<img src=''></a>
 
         <ul>
             @foreach($playlists as $playlist)
