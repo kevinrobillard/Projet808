@@ -24,7 +24,10 @@
       <li class="login"><a href="/login">Login</a></li> 
     @endguest
     @auth
-        <li class="login"><a href="/logout">Logout</a></li>    
+        <li class="login"><a href="/logout">Logout</a></li> 
+      @if(Auth::user() && Auth::user()->email == 'admin@gmail.com')
+            <li class="login"><a href="/interfaceAdmin">Interface Admin</a></li>
+        @endif
     @endauth
   </ul>
 </header>

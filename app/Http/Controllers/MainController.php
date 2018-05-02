@@ -171,11 +171,15 @@ class MainController extends Controller
     
     public function artiste($id){
         $artiste = Artiste::find($id);
-        $user = User::find(Auth::user()->id);
         if($artiste == false){
             return redirect('404');
         }
-        return view('artiste', ['artiste' => $artiste, 'user' => $user]);
+        
+        if(Auth::user()){
+            $user = User::find(Auth::user()->id);
+            return view('artiste', ['artiste' => $artiste, 'user' => $user]);
+        }
+        return view('artiste', ['artiste' => $artiste]);
     }
     
     public function album($id){
