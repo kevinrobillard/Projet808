@@ -19,7 +19,7 @@ class AdminController extends Controller
         if(Auth::user() && Auth::user()->email == 'admin@gmail.com'){
             return view('interfaceAdmin');
         }
-        return view('index');
+        return redirect('/');
     }
     
     public function gererArtistes(){
@@ -27,14 +27,14 @@ class AdminController extends Controller
             $artistes = Artiste::all()->sortBy("nom");
             return view('gererArtistes', ['artistes' => $artistes]);
         }
-        return view('index');
+        return redirect('/');
     }
     
     public function ajouterArtiste(){
         if(Auth::user() && Auth::user()->email == 'admin@gmail.com'){
             return view('ajouterArtiste');
         }
-        return view('index');
+        return redirect('/');
     }
     
     public function insertArtiste(Request $request){
@@ -56,7 +56,7 @@ class AdminController extends Controller
             
             return view('gererArtistes', ['artistes' => $artistes]);
         }
-        return view('index');
+        return redirect('/');
     }
     
     public function modifierArtiste($id){
@@ -64,7 +64,7 @@ class AdminController extends Controller
             $artiste = Artiste::find($id);
             return view('modifierArtiste', ['artiste' => $artiste]);
         }
-        return view('index');
+        return redirect('/');
     }
     
     public function updateArtiste(Request $request, $id){
@@ -86,7 +86,7 @@ class AdminController extends Controller
             
             return view('gererArtistes', ['artistes' => $artistes]);
         }
-        return view('index');
+        return redirect('/');
     }
     
     public function supprimerArtiste($id){
@@ -94,7 +94,7 @@ class AdminController extends Controller
             $artiste = Artiste::find($id);
             return view('supprimerArtiste', ['artiste' => $artiste]);
         }
-        return view('index');
+        return redirect('/');
     }
     
     public function deleteArtiste(Request $request, $id){
@@ -123,7 +123,7 @@ class AdminController extends Controller
             
             return view('gererArtistes', ['artistes' => $artistes]);
         }
-        return view('index');
+        return redirect('/');
     }
     
     public function gererAlbums(){
@@ -131,7 +131,7 @@ class AdminController extends Controller
             $albums = Album::all()->sortBy("titre");
             return view('gererAlbums', ['albums' => $albums]);
         }
-        return view('index');
+        return redirect('/');
     }
     
     public function ajouterAlbum(){
@@ -139,7 +139,7 @@ class AdminController extends Controller
             $artistes = Artiste::all()->sortBy("nom");
             return view('ajouterAlbum', ['artistes' => $artistes]);
         }
-        return view('index');
+        return redirect('/');
     }
     
     public function insertAlbum(Request $request){
@@ -166,7 +166,7 @@ class AdminController extends Controller
             
             return view('gererAlbums', ['albums' => $albums]);
         }
-        return view('index');
+        return redirect('/');
     }
     
     public function modifierAlbum($id){
@@ -175,7 +175,7 @@ class AdminController extends Controller
             $artistes = Artiste::all()->sortBy("nom");
             return view('modifierAlbum', ['album' => $album, 'artistes' => $artistes]);
         }
-        return view('index');
+        return redirect('/');
     }
     
     public function updateAlbum(Request $request, $id){
@@ -202,7 +202,7 @@ class AdminController extends Controller
             
             return view('gererAlbums', ['albums' => $albums]);
         }
-        return view('index');
+        return redirect('/');
     }
     
     public function supprimerAlbum($id){
@@ -210,7 +210,7 @@ class AdminController extends Controller
             $album = Album::find($id);
             return view('supprimerAlbum', ['album' => $album]);
         }
-        return view('index');
+        return redirect('/');
     }
     
     public function deleteAlbum(Request $request, $id){
@@ -233,7 +233,7 @@ class AdminController extends Controller
             
             return view('gererAlbums', ['albums' => $albums]);
         }
-        return view('index');
+        return redirect('/');
     }
     
     public function gererChansons(){
@@ -241,7 +241,7 @@ class AdminController extends Controller
             $chansons = Chanson::all()->sortBy("titre");
             return view('gererChansons', ['chansons' => $chansons]);
         }
-        return view('index');
+        return redirect('/');
     }
     
     public function ajouterChanson(){
@@ -250,7 +250,7 @@ class AdminController extends Controller
             $artistes = Artiste::all()->sortBy("nom");
             return view('ajouterChanson', ['albums' => $albums, 'artistes' => $artistes]);
         }
-        return view('index');
+        return redirect('/');
     }
     
     public function insertChanson(Request $request){
@@ -316,7 +316,7 @@ class AdminController extends Controller
             
             return view('gererChansons', ['chansons' => $chansons]);
         }
-        return view('index');
+        return redirect('/');
     }
     
     public function modifierChanson($id){
@@ -327,7 +327,7 @@ class AdminController extends Controller
             
             return view('modifierChanson', ['chanson' => $chanson, 'albums' => $albums, 'artistes' => $artistes]);
         }
-        return view('index');
+        return redirect('/');
     }
     
     public function updateChanson(Request $request, $id){
@@ -398,7 +398,7 @@ class AdminController extends Controller
             
             return view('gererChansons', ['chansons' => $chansons]);
         }
-        return view('index');
+        return redirect('/');
     }
     
     public function supprimerChanson($id){
@@ -406,7 +406,7 @@ class AdminController extends Controller
             $chanson = Chanson::find($id);
             return view('supprimerChanson', ['chanson' => $chanson]);
         }
-        return view('index');
+        return redirect('/');
     }
     
     public function deleteChanson(Request $request, $id){
@@ -422,7 +422,7 @@ class AdminController extends Controller
             
             return view('gererChansons', ['chansons' => $chansons]);
         }
-        return view('index');
+        return redirect('/');
     }
     
 }
