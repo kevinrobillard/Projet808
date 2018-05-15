@@ -16,6 +16,7 @@
 
         <form id="contact" action='/interfaceAdmin/gererChansons/{{$chanson->id}}/update' method='POST' enctype="multipart/form-data">    
             @csrf
+
             <fieldset>
                 <label>Numéro de piste : </label><input placeholder="Numéro de piste" style=" width: 100%;" type='number' name='numeroChanson' size=50 value="{{ $chanson->idPiste }}" required/>
             </fieldset>
@@ -35,14 +36,14 @@
                 <label>Pochette : </label><input type='url' name='pochetteChanson' placeholder='Entrez une URL' size=50 value="{{ $chanson->pochette }}" required/>
             </fieldset>
             <fieldset>
-                <label>Audio : </label><input type='file' style=" width: 100%;" name='audioChanson' value="{{ $chanson->audio }}"/>
+                <label>Audio : </label> <label id="labelAudioChanson"> Choisir un fichier <input type='file' style=" width: 100%;" name='audioChanson' id='audioChanson'/></label>
             </fieldset>
             <fieldset><label>Album : </label><select name='albumChanson' style=" width: 100%;">
-                                        <option value='-1'>{{$chanson->album->titre}}</option>
-                                        @foreach($albums as $album)
-                                            <option value='{{$album->id}}'>{{$album->titre}}</option>
-                                        @endforeach
-                                     </select>
+                                                <option value='-1'>{{$chanson->album->titre}}</option>
+                                                @foreach($albums as $album)
+                                                    <option value='{{$album->id}}'>{{$album->titre}}</option>
+                                                @endforeach
+                                            </select>
             </fieldset>
             
             <h2>Artistes présents sur cette chanson</h2>

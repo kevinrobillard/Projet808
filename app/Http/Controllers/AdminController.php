@@ -11,6 +11,7 @@ use Auth;
 use Redirect;
 use DB;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 
 class AdminController extends Controller
 {
@@ -266,17 +267,22 @@ class AdminController extends Controller
                 'numeroChanson' => 'required',
                 'artistePrincipalChanson'=> 'required',
             ]);
-            
+        
             $newChanson = new Chanson;
 	        $newChanson->titre = $request->input('titreChanson');
             $newChanson->description = $request->input('descriptionChanson');
             $newChanson->duree = $request->input('dureeChanson');
             $newChanson->paroles = $request->input('parolesChanson');
             $newChanson->pochette = $request->input('pochetteChanson');
-            if($request->file('audioChanson')){ 
-                $newChanson->audio = $request->file('audioChanson')->store('public/tracks');
+
+            if ($request->file('audioChanson')->isValid()) {
+                $titreChansonSansEspaces = str_replace(" ", "_", $request->input('titreChanson'));
+                
+                $newChanson->audio = $request->file('audioChanson')->storeAs('public/tracks', $request->input('numeroChanson').'-'.$titreChansonSansEspaces.'.mp3');
+                
+                $newChanson->audio = str_replace("public/", "storage/", $newChanson->audio);
             }
-            $newChanson->audio = str_replace("public/", "storage/", $newChanson->audio);
+
             $newChanson->idAlbum = $request->input('albumChanson');
             $newChanson->idPiste = $request->input('numeroChanson');
 	        $newChanson->save();
@@ -352,8 +358,16 @@ class AdminController extends Controller
             $chansonToUpdate->duree = $request->input('dureeChanson');
             $chansonToUpdate->paroles = $request->input('parolesChanson');
             $chansonToUpdate->pochette = $request->input('pochetteChanson');
-            $chansonToUpdate->audio = $request->input('audioChanson');
-            $chansonToUpdate->idAlbum = $request->input('albumChanson');
+            if ($request->file('audioChanson') && $request->file('audioChanson')->isValid()) {
+                $titreChansonSansEspaces = str_replace(" ", "_", $request->input('titreChanson'));
+                
+                $chansonToUpdate->audio = $request->file('audioChanson')->storeAs('public/tracks', $request->input('numeroChanson').'-'.$titreChansonSansEspaces.'.mp3');
+                
+                $chansonToUpdate->audio = str_replace("public/", "storage/", $chansonToUpdate->audio);
+            }
+            if($request->input('albumChanson') != -1){
+                $chansonToUpdate->idAlbum = $request->input('albumChanson');
+            }
             $chansonToUpdate->idPiste = $request->input('numeroChanson');
 	        $chansonToUpdate->save();
             
@@ -418,6 +432,11 @@ class AdminController extends Controller
             
             DB::table('contient')->where('idChanson', $chansonToDelete->id)->delete();
             DB::table('apparaitdans')->where('idChanson', $chansonToDelete->id)->delete();
+
+            //Suppression du fichier audio
+            $fileName = str_replace("/", "\\", $chansonToDelete->audio);
+            unlink(public_path($fileName));
+            
             $chansonToDelete->delete();
             
             $chansons = Chanson::all()->sortBy("titre");
