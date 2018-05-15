@@ -41,10 +41,50 @@
     @else
         <p>Durée<br> {{$chanson->duree}}</p>
     @endif
-<audio controls="controls">
+    
+    
+    
+    
+<!--<audio controls="controls">
   <source src="/music/Friday.mp3" type="audio/mp3" />
   Votre navigateur n'est pas compatible
-</audio>
+</audio>-->
+    
+    
+	<audio src="" id="hidden-player"></audio>
+	<div id="player">
+		<div class="player-song">
+			<div class="title"></div>
+			<div class="artist"></div>
+			<progress value="0" max="1"></progress>
+			<div class="timestamps">
+				<div class="time-now">0:00:00</div>
+				<div class="time-finish">0:00:00</div>
+			</div>
+			<div class="actions">
+				<div class="prev">
+					<i class="material-icons">fast_rewind</i>
+				</div>
+				<div class="play">
+					<a class="play-button paused" href="#">
+						<div class="left"></div>
+						<div class="right"></div>
+						<div class="triangle-1"></div>
+						<div class="triangle-2"></div>
+					</a>
+				</div>
+				<div class="next">
+					<i class="material-icons">fast_forward</i>
+				</div>
+			</div>
+		</div>
+	</div>
+
+    
+
+
+
+    
 </div>
 </div>
     
