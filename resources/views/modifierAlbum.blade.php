@@ -1,9 +1,9 @@
 @extends('templates.template1')
 
 @section('content')
-
+<div id="gridajout">
     <h1>MODIFIER UN ALBUM</h1>
-
+<div class="containerform">
         @if ($errors->any())
             <div class="alert alert-danger">
                 <ul>
@@ -14,21 +14,37 @@
             </div>
         @endif
 
-        <form action='/interfaceAdmin/gererAlbums/{{$album->id}}/update' method='POST'>    
+        <form id="contact" action='/interfaceAdmin/gererAlbums/{{$album->id}}/update' method='POST'>    
             @csrf
-            <label>Titre : </label><input type='text' name='titreAlbum' size=50 value="{{ $album->titre }}" required/><br>
-            <label>Description : </label><textarea name='descriptionAlbum' required rows="5" cols="50">{{ $album->description }}</textarea><br>
-            <label>Date de sortie : </label><input type='date' name='dateSortieAlbum' size=50 value="{{ $album->dateSortie }}" required/><br>
-            <label>Nombre de ventes : </label><input type='number' name='nbVentesAlbum' size=50 value="{{ $album->nbVentes }}"/><br>
-            <label>Pochette : </label><input type='url' name='pochetteAlbum' placeholder='Entrez une URL' size=50 value="{{ $album->pochette }}" required/><br>
-            <label>Artiste : </label><select name='artisteAlbum'>
+            <fieldset>
+                <label>Titre: </label>
+                <input type='text'  placeholder="Titre" name='titreAlbum' size=50 value="{{ $album->titre }}" required/>
+            </fieldset>
+            <fieldset> 
+                    <label>Description: </label>
+                    <textarea  placeholder="Description" name='descriptionAlbum' required rows="5" cols="50">{{ $album->description }}</textarea>
+            </fieldset>
+            <fieldset> 
+                   <label>Date de sortie: </label>
+                   <input type='date'  placeholder="Date de sortie" name='dateSortieAlbum' style=" width: 100%;" size=50 value="{{ $album->dateSortie }}" required/>
+            </fieldset>
+            <fieldset>
+                <label>Nombre de vente: </label>
+                   <input type='number'  placeholder="Nombre de vente" style=" width: 100%;" name='nbVentesAlbum' size=50 value="{{ $album->nbVentes }}"/>
+            </fieldset>
+            <fieldset>
+            <label>Pochette: </label>
+                   <input type='url'  placeholder="Pochette" name='pochetteAlbum' placeholder='Entrez une URL' size=50 value="{{ $album->pochette }}" required/>
+            </fieldset>
+            <fieldset><label>Artiste : </label><select name='artisteAlbum' style=" width: 100%;">
                                         <option value='-1'>{{$album->artiste->nom}}</option>
                                         @foreach($artistes as $artiste)
                                             <option value='{{$artiste->id}}'>{{$artiste->nom}}</option>
                                         @endforeach
                                      </select>
-            <br><br>
-            <input type='submit' name='modifierAlbum' value='Modifier'/>
+               </fieldset>
+                <button name="ajouterChanson" type="submit" id="contact-submit" data-submit="...Sending">Modifier</button>
         </form>
-
+    </div>
+</div>
 @endsection

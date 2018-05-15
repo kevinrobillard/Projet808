@@ -1,8 +1,8 @@
 @extends('templates.template1')
 
 @section('content')
- <div id='grid1'>
-<div class="maing">
+<div class="section1">
+<div class="div1">
     <h1 class="titrealbum">{{$artiste->nom}}</h1>
         <!--Pochette-->
     @if($artiste->photo == false)
@@ -54,7 +54,7 @@
     @endif
 </div>
 
-<div class="maind">
+<div class="div2">
     <h2>Albums</h2>
     @if(count($artiste->albums)==0)
     <p>Aucun album disponible</p>    
@@ -67,29 +67,27 @@
         @endforeach
     @endif
 </div>  
+
+<div class="chansons">
+    <h2>Chansons dans lesquelles apparait {{$artiste->nom}}</h2>
+    <ul>
+        @foreach($artiste->apparaitdans as $chanson)
+            <li><a href='/chanson/{{$chanson->id}}'>{{$chanson->titre}}</a></li>
+        @endforeach
+    </ul></div>
 </div>
 
-<div id='grid2'>
-    <div class="chansons">
-        <h2>Chansons dans lesquelles apparait {{$artiste->nom}}</h2>
-        <ul>
-            @foreach($artiste->apparaitdans as $chanson)
-                <li><a href='/chanson/{{$chanson->id}}'>{{$chanson->titre}}</a></li>
-            @endforeach
-        </ul>
-    </div>
-
-
-
-
+<div class="section5">
+<div class="div4">
     <h2>Artistes similaires</h2>
     
     @php ($artists = [$artistOfThePage]) 
-    <div class="similaires">
+
+ 
         @foreach($artiste->apparaitdans as $chanson)
             @foreach($chanson->apparaitdans as $artiste)
                 @if(!in_array($artiste->nom, $artists))
-                    <div class="main">
+                    <div class="news">
                         <a href='/artiste/{{$artiste->id}}'><img src='{{$artiste->photo}}'></a><br>
                         <a href='/artiste/{{$artiste->id}}'>{{$artiste->nom}}</a>
                         @php ($artists[] = $artiste->nom) 
@@ -98,6 +96,6 @@
             @endforeach
         @endforeach
  
-    </div>
+</div>
 </div>
 @endsection

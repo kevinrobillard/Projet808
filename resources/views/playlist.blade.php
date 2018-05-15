@@ -4,19 +4,28 @@
     @section('content')
 
         <h1>{{$playlist->titre}}</h1>
+<div id='gridp'>
+    <div class="maing"> 
+        <a class="playlist" href='/playlist/{{$playlist->id}}/ajouterChansonsInPlaylist'>AJOUTER DES CHANSONS<image class="iconeplaylist" img src="/img/plus.png" alt="Ajouter une chanson"></image></a>
+    </div>
+    <div class="maind">
+        <a class="playlist" href='/playlist/{{$playlist->id}}/supprimerChansonsInPlaylist'>SUPPRIMER DES CHANSONS<image class="iconeplaylist" img src="/img/moins.png" alt="Supprimer une chanson"></image></a>
+    </div>
+</div>
 
-        <a href='/playlist/{{$playlist->id}}/ajouterChansonsInPlaylist'>AJOUTER DES CHANSONS<img src=''></a>
-        <a href='/playlist/{{$playlist->id}}/supprimerChansonsInPlaylist'>SUPPRIMER DES CHANSONS<img src=''></a>
-
+<div id="gridartistes">
             @foreach($playlist->contient as $chanson)
-                <div>
-                    <a href='/chanson/{{$chanson->id}}'>{{$chanson->titre}}</a> - {{$chanson->duree}}<br>
-                    <a href='/album/{{$chanson->album->id}}'>{{$chanson->album->titre}}</a><br>
+                <div class="main">
+                    <a href='/chanson/{{$chanson->id}}'><img src='{{$chanson->pochette}}'></a><br>
+                    <audio controls="controls"> <source src="/music/Friday.mp3" type="audio/mp3" />Votre navigateur n'est pas compatible</audio><br>
+                    <a class="artistealbum" href='/chanson/{{$chanson->id}}'>{{$chanson->titre}}</a><br>
+                    <a href='/album/{{$chanson->album->id}}'>{{$chanson->album->titre}}</a> -
                     @foreach($chanson->apparaitdans as $artiste)
                         <a href='/artiste/{{$artiste->id}}'>{{$artiste->nom}}</a>
                     @endforeach
                 </div>
             @endforeach
+</div>
 
     @endsection
 @endauth

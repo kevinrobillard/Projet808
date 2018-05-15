@@ -1,7 +1,7 @@
 @extends('templates.template1')
 
 @section('content')
-
+<div id="gridsupp">
     <h1>SUPPRIMER UN ALBUM</h1>
 
     <p>Etes-vous sur de vouloir supprimer l'album suivant ainsi que ses chansons ?</p>
@@ -17,12 +17,12 @@
 
     <form action='/interfaceAdmin/gererAlbums/{{$album->id}}/delete' method='POST'>    
         @csrf
-        <input type='submit' name='ouiSupprimerAlbum' value='Oui'/>
+        <input class="bouton2" type='submit' name='ouiSupprimerAlbum' value='Oui'/>
     </form>
 
     <form action='/interfaceAdmin/gererAlbums' method='GET'>    
         @csrf
-        <input type='submit' name='nonSupprimerAlbum' value='Non'/>
+        <input class="bouton2" type='submit' name='nonSupprimerAlbum' value='Non'/>
     </form>
-
+</div>
 @endsection

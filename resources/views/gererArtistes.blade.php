@@ -1,12 +1,12 @@
 @extends('templates.template1')
 
 @section('content')
-
     <h1>GERER LES ARTISTES</h1>
     <p>Choisissez l'action à effectuer</p>  
 
 
-    <a href="/interfaceAdmin/gererArtistes/ajouter"><image class="icones" img src=""></image>Ajouter</a>
+    <a class="ajouter" href="/interfaceAdmin/gererArtistes/ajouter"><image class="iconeajouter" img src="/img/plus.png" alt="Ajouter un artiste"></image>Ajouter</a>
+<div id='gridtab'>
     <table border=1>
         <tr>
             <th>Artiste</th>
@@ -25,5 +25,5 @@
             </tr>
         @endforeach
     </table>
-
+</div>
 @endsection

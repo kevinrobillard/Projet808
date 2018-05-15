@@ -273,7 +273,9 @@ class AdminController extends Controller
             $newChanson->duree = $request->input('dureeChanson');
             $newChanson->paroles = $request->input('parolesChanson');
             $newChanson->pochette = $request->input('pochetteChanson');
-            $newChanson->audio = $request->file('audioChanson')->store('public/tracks');
+            if($request->file('audioChanson')){ 
+                $newChanson->audio = $request->file('audioChanson')->store('public/tracks');
+            }
             $newChanson->audio = str_replace("public/", "storage/", $newChanson->audio);
             $newChanson->idAlbum = $request->input('albumChanson');
             $newChanson->idPiste = $request->input('numeroChanson');

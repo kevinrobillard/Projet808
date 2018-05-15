@@ -1,8 +1,8 @@
 @extends('templates.template1')
 
 @section('content')
-<div class="section1">
-<div class="div1">
+<div id='grid1'>
+<div class="maing">
     <h1 class="titrealbum">{{$album->titre}}</h1>
 
     <!--Pochette-->
@@ -11,8 +11,20 @@
     @else
         <img class="imgalbum" src='{{$album->pochette}}'>
     @endif
+    
+</div>
+    <div class="maind">
+    <h2>Tracklist</h2>
+        <ul>
+            @foreach($album->chansons as $chanson)
+                <li>{{$chanson->idPiste}}.<a href='/chanson/{{$chanson->id}}'>{{$chanson->titre}}</a> - {{$chanson->duree}}</li>
+            @endforeach
+        </ul>
+</div>
+</div>
 
-<div class="div3">
+<div class="grid2">
+    <div class="infos">
     <!--Description-->
     @if($album->description == false)
         <p> </p>
@@ -36,27 +48,14 @@
         <p class="infos2"><span class="infos">Nombre de ventes</span><br> {{$album->nbVentes}}</p>
     @endif
 </div>
-</div>
 
 
 
-    <div class="div2">
-    <h2>Tracklist</h2>
-        <ul>
-            @foreach($album->chansons as $chanson)
-                <li>{{$chanson->idPiste}}.<a href='/chanson/{{$chanson->id}}'>{{$chanson->titre}}</a> - {{$chanson->duree}}</li>
-            @endforeach
-        </ul>
-    </div>
-</div>
 
-
-<div class="section2">
-<div class="div4">
     <h2>Artistes présents sur cet album</h2>
     
     @php ($artists = []) @endphp
-     
+<div class="similaires">     
         @foreach($album->chansons as $chanson)
 
             @foreach($chanson->apparaitdans as $artiste)
@@ -72,4 +71,5 @@
         @endforeach
 </div>
 </div>
+     
 @endsection

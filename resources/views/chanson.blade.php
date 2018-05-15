@@ -1,6 +1,8 @@
 @extends('templates.template1')
 
 @section('content')
+<div id='grid5'>
+    <div class="maing">
     <h1 class="titrechanson">{{$chanson->titre}}</h1>
 
     <!--Pochette-->
@@ -20,14 +22,15 @@
     <div class="chansonalbum">Album<br> <a href='/album/{{$chanson->album->id}}'>{{$chanson->album->titre}}</a></div>
 </div>
     @endif 
-
-
+</div>
+<div class="maind">
+    <h1 class="titrechanson">Informations</h1>
     <!--Description-->
     <div class="description">
     @if($chanson->description == false)
         <p> </p>
     @else
-        <p class="titredescription">Description</p><p>{{$chanson->description}}</p>
+        <p class="titredescription">Description</p><p class="descriptionchanson">{{$chanson->description}}</p>
     @endif  
     </div>
 
@@ -42,7 +45,10 @@
   <source src="/music/Friday.mp3" type="audio/mp3" />
   Votre navigateur n'est pas compatible
 </audio>
-
+</div>
+</div>
+    
+<div id='grid2'>
     <!--Paroles-->
     <div class="paroles">
     @if($chanson->paroles == false)
@@ -56,6 +62,7 @@
 
 
     <h2>Artistes présents sur cette chanson</h2>
+<div class="similaires">     
 
             @foreach($chanson->apparaitdans as $artiste)
         <div class="news">
@@ -63,6 +70,6 @@
         <a href='/artiste/{{$artiste->id}}'>{{$artiste->nom}}</a>
 </div>
         @endforeach
-    
-    
+  </div>   
+    </div>   
 @endsection
