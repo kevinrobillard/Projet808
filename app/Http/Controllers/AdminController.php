@@ -274,6 +274,7 @@ class AdminController extends Controller
             $newChanson->duree = $request->input('dureeChanson');
             $newChanson->paroles = $request->input('parolesChanson');
             $newChanson->pochette = $request->input('pochetteChanson');
+
             if ($request->file('audioChanson')->isValid()) {
                 $titreChansonSansEspaces = str_replace(" ", "_", $request->input('titreChanson'));
                 
@@ -281,6 +282,7 @@ class AdminController extends Controller
                 
                 $newChanson->audio = str_replace("public/", "storage/", $newChanson->audio);
             }
+
             $newChanson->idAlbum = $request->input('albumChanson');
             $newChanson->idPiste = $request->input('numeroChanson');
 	        $newChanson->save();

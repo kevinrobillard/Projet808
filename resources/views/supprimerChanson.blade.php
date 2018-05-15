@@ -1,7 +1,7 @@
 @extends('templates.template1')
 
 @section('content')
-
+<div id="gridsupp">
     <h1>SUPPRIMER UNE CHANSON</h1>
 
     <p>Etes-vous sur de vouloir supprimer la chanson suivante ?</p>
@@ -18,12 +18,12 @@
 
     <form action='/interfaceAdmin/gererChansons/{{$chanson->id}}/delete' method='POST'>    
         @csrf
-        <input type='submit' name='ouiSupprimerChanson' value='Oui'/>
+        <input class="bouton2" type='submit' name='ouiSupprimerChanson' value='Oui'/>
     </form>
 
     <form action='/interfaceAdmin/gererChansons' method='GET'>    
         @csrf
-        <input type='submit' name='nonSupprimerChanson' value='Non'/>
+        <input class="bouton2" type='submit' name='nonSupprimerChanson' value='Non'/>
     </form>
-
+</div>
 @endsection

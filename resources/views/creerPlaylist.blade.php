@@ -18,8 +18,8 @@
 
             <form action='/playlist/insertPlaylist' method='POST'>
                 @csrf
-                <label>Titre :</label> <input type='text' name='titre' value="{{ old('titre') }}" required/><br><br>
-                <input type='submit' name='validerTitrePlaylist'/>
+                <label>Titre :</label> <input class="form" type='text' name='titre' value="{{ old('titre') }}" required/><br><br>
+                <input class="bouton2" type='submit' name='validerTitrePlaylist'/>
             </form>
 
     @endsection

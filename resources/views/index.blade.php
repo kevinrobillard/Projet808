@@ -5,11 +5,14 @@
     @auth
         <h1>FIL D'ACTUALITÉS</h1>
 
+            <div id='gridnouveautes'>
+
+
             @php ($dates = []) @endphp
 
             @foreach($followedArtistsAlbums as $album)
 
-                <div class="news">
+                <div class="main">
                     @if(!in_array($album->dateSortie, $dates))
                         {{$album->dateSortie}}<br>
                         @php ($dates[] = $album->dateSortie) @endphp
@@ -28,5 +31,5 @@
        <p class="logaccueil"> Pour avoir accès à toutes les fonctionnalités du site et pouvoir suivre des artistes vous devez être connectés.</p> 
         <p><b><a href='/login'>Connectez-vous</a></b> <br> ou <br> <b><a href='/register'>Créez un compte</a></b></p>
     @endguest
-
+</div>
 @endsection

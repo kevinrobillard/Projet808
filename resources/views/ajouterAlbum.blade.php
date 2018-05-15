@@ -1,9 +1,9 @@
 @extends('templates.template1')
 
 @section('content')
-
+<div id="gridajout">
     <h1>AJOUTER UN ALBUM</h1>
-
+<div class="containerform">
         @if ($errors->any())
             <div class="alert alert-danger">
                 <ul>
@@ -14,20 +14,43 @@
             </div>
         @endif
 
-        <form action='/interfaceAdmin/gererAlbums/insert' method='POST'>    
-            @csrf
-            <label>Titre : </label><input type='text' name='titreAlbum' size=50 value="{{ old('titreAlbum') }}" required/><br>
-            <label>Description : </label><textarea name='descriptionAlbum' required rows="5" cols="50">{{ old('descriptionAlbum') }}</textarea><br>
-            <label>Date de sortie : </label><input type='date' name='dateSortieAlbum' size=50 value="{{ old('dateSortieAlbum') }}" required/><br>
-            <label>Nombre de ventes : </label><input type='number' name='nbVentesAlbum' size=50 value="{{ old('nbVentesAlbum') }}"/><br>
-            <label>Pochette : </label><input type='url' name='pochetteAlbum' placeholder='Entrez une URL' size=50 value="{{ old('pochetteAlbum') }}" required/><br>
-            <label>Artiste : </label><select name='artisteAlbum'>
-                                        @foreach($artistes as $artiste)
-                                            <option value='{{$artiste->id}}'>{{$artiste->nom}}</option>
-                                        @endforeach
-                                     </select>
-            <br><br>
-            <input type='submit' name='ajouterAlbum' value='Ajouter'/>
-        </form>
-
+    
+        <form id="contact" action='/interfaceAdmin/gererAlbums/insert' method="post">
+           @csrf
+            <h3>Veuillez remplir tous les champs</h3>
+            <fieldset>
+                <label>Titre: </label>
+                <input placeholder="Titre" type="text" tabindex="1" name='titreAlbum' size=50 value="{{ old('titreAlbum') }}"  required autofocus>
+            </fieldset>
+            <fieldset>
+                <label>Date de sortie: </label>
+                <input placeholder="Date de sortie" type="date" tabindex="2" name='dateSortieAlbum' style=" width: 100%;" size=50 value="{{ old('dateSortieAlbum') }}" required>
+            </fieldset>
+            <fieldset>
+                <label>Pochette: </label>
+                <input placeholder="Pochette (Entrer une URL)" type="url" tabindex="3" name='pochetteAlbum' size=50 value="{{ old('pochetteAlbum') }}" required>
+            </fieldset>
+            <fieldset>
+                <label>Description: </label>
+                <textarea placeholder="Description" tabindex="4" name='descriptionAlbum' required rows="5" cols="50">{{ old('descriptionAlbum') }}</textarea>
+            </fieldset>
+            <fieldset>
+                <label>Nombre de ventes: </label>
+                <input type="number" placeholder="Nombre de ventes" style=" width: 100%;" tabindex="5" name='nbVentesAlbum' size=50 value="{{ old('nbVentesAlbum') }}"/>
+            </fieldset>
+            <fieldset>
+                <label>Artiste: </label>
+                <select style=" width: 100%;" name='artisteAlbum'>
+                    @foreach($artistes as $artiste)
+                        <option value='{{$artiste->id}}'>{{$artiste->nom}}</option>
+                            @endforeach
+                </select>            
+            </fieldset>
+            <fieldset>
+                <button name="submit" type="submit" id="contact-submit" data-submit="...Sending">Ajouter</button>
+            </fieldset>
+  </form>
+    
+</div>
+</div>
 @endsection
