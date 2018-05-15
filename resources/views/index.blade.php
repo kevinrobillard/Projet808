@@ -4,10 +4,13 @@
 
     @auth
         <h1>FIL D'ACTUALITÉS</h1>
+
             <div id='gridnouveautes'>
+
+
+            @php ($dates = []) @endphp
+
             @foreach($followedArtistsAlbums as $album)
-                
-                @php ($dates = []) @endphp
 
                 <div class="main">
                     @if(!in_array($album->dateSortie, $dates))
