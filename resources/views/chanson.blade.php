@@ -45,7 +45,7 @@
 <audio controls="controls">
   <source src="/{{$chanson->audio}}"  />
   Votre navigateur n'est pas compatible
-</audio>-->
+</audio>
     
     
 	<audio src="" id="hidden-player"></audio>
