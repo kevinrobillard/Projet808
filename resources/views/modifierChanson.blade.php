@@ -22,7 +22,7 @@
             <label>Duree : </label><input type='time' name='dureeChanson' step='1' value="{{ $chanson->duree }}" required/><br>
             <label>Paroles : </label><textarea name='parolesChanson' required rows="5" cols="50">{{ $chanson->paroles }}</textarea><br>
             <label>Pochette : </label><input type='url' name='pochetteChanson' placeholder='Entrez une URL' size=50 value="{{ $chanson->pochette }}" required/><br>
-            <label>Audio : </label><input type='file' name='audioChanson' value="{{ $chanson->audio }}"/><br>
+            <label>Audio : </label><label id="labelAudioChanson"> Choisir un fichier <input type='file' name='audioChanson' id='audioChanson'/></label> <br>
             <label>Album : </label><select name='albumChanson'>
                                         <option value='-1'>{{$chanson->album->titre}}</option>
                                         @foreach($albums as $album)
