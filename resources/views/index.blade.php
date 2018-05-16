@@ -7,7 +7,6 @@
 
             <div id='gridnouveautes'>
 
-
             @php ($dates = []) @endphp
 
             @foreach($followedArtistsAlbums as $album)

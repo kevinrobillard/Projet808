@@ -20,9 +20,8 @@
                     <audio controls="controls"> <source src="/music/Friday.mp3" type="audio/mp3" />Votre navigateur n'est pas compatible</audio><br>
                     <a class="artistealbum" href='/chanson/{{$chanson->id}}'>{{$chanson->titre}}</a><br>
                     <a href='/album/{{$chanson->album->id}}'>{{$chanson->album->titre}}</a> -
-                    @foreach($chanson->apparaitdans as $artiste)
-                        <a href='/artiste/{{$artiste->id}}'>{{$artiste->nom}}</a>
-                    @endforeach
+                    <a href='/artiste/{{$chanson->album->artiste->id}}'>{{$chanson->album->artiste->nom}}</a>
+                    
                 </div>
             @endforeach
 </div>
