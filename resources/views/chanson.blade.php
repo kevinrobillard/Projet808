@@ -41,27 +41,22 @@
     @else
         <p>Durée<br> {{$chanson->duree}}</p>
     @endif
-
-<audio controls="controls">
-  <source src="/{{$chanson->audio}}"  />
-  Votre navigateur n'est pas compatible
-</audio>
     
     
-	<audio src="" id="hidden-player"></audio>
+	<audio src="/{{$chanson->audio}}" id="hidden-player"></audio>
 	<div id="player">
 		<div class="player-song">
-			<div class="title"></div>
-			<div class="artist"></div>
+			<div class="title">{{$chanson->titre}}</div>
+			<div class="artist">{{$chanson->album->artiste->nom}}</div>
 			<progress value="0" max="1"></progress>
 			<div class="timestamps">
 				<div class="time-now">0:00:00</div>
 				<div class="time-finish">0:00:00</div>
 			</div>
 			<div class="actions">
-				<div class="prev">
+				<!--<div class="prev">
 					<i class="material-icons">fast_rewind</i>
-				</div>
+				</div>-->
 				<div class="play">
 					<a class="play-button paused" href="#">
 						<div class="left"></div>
@@ -70,9 +65,9 @@
 						<div class="triangle-2"></div>
 					</a>
 				</div>
-				<div class="next">
+				<!--<div class="next">
 					<i class="material-icons">fast_forward</i>
-				</div>
+				</div>-->
 			</div>
 		</div>
 	</div>

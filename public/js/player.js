@@ -13,51 +13,22 @@ function secondsTimeSpanToHMS(s) {
 	return h + ":" + (m < 10 ? '0' + m : m) + ":" + (s < 10 ? '0' + s : s); //zero padding on minutes and seconds
 };
 
-songs = [{
+songs = [/*{
 		src: "https://s3-us-west-2.amazonaws.com/live.swipesapp.com/uploads/ONY8E94FL/1514889244-UZTYMBVGO/oddisee-fast-lane-speedin-remix-by-kristjan-vool.mp3",
 		title: "Fast Lane Speedin'",
 		artist: "Oddisee",
 		coverart: "http://static.djbooth.net/pics-features/oddisee-art-thumb.jpg"
-	},
+	}*/];
 
-	{
-		src: "https://s3-us-west-2.amazonaws.com/live.swipesapp.com/uploads/ONY8E94FL/1514889217-UZTYMBVGO/andy-mineo-superhuman-remix-by-kristjan-vool.mp3",
-		title: "Superhuman",
-		artist: "Andy Mineo",
-		coverart: "http://static.djbooth.net/pics-artist/andy-mineo.jpg"
-	},
-
-	{
-		src: "http://k003.kiwi6.com/hotlink/gqfxjp1jdw/Wild_Things_remix.mp3",
-		title: "Wild Things",
-		artist: "Andy Mineo",
-		coverart: "http://static.djbooth.net/pics-artist/andy-mineo.jpg"
-	},
-
-	{
-		src: "https://s3-us-west-2.amazonaws.com/live.swipesapp.com/uploads/ONY8E94FL/1514889231-UZTYMBVGO/j-cole-work-out-remix-ver-1.mp3",
-		title: "Work Out",
-		artist: "J. Cole",
-		coverart: "https://s3.amazonaws.com/hiphopdx-production/2014/12/J.-Cole-%E2%80%93-Apparently-e1418166093622-300x300.jpg"
-	},
-
-	{
-		src: "https://s3-us-west-2.amazonaws.com/live.swipesapp.com/uploads/ONY8E94FL/1514889265-UZTYMBVGO/wild-things-remix.mp3",
-		title: "Cocky",
-		artist: "Andy Mineo",
-		coverart: "http://static.djbooth.net/pics-artist/andy-mineo.jpg"
-	}
-];
-
-var initSongSrc = songs[0].src;
+/*var initSongSrc = songs[0].src;
 var initSongTitle = songs[0].title;
 var initSongArtist = songs[0].artist;
-var initSongCover = songs[0].coverart;
+var initSongCover = songs[0].coverart;*/
 
-hiddenPlayer.attr("src", initSongSrc);
+/*hiddenPlayer.attr("src", initSongSrc);
 title.html(initSongTitle);
 artist.html(initSongArtist);
-cover.attr('src', initSongCover);
+cover.attr('src', initSongCover);*/
 
 hiddenPlayer.attr('order', '0');
 hiddenPlayer[0].onloadedmetadata = function() {
@@ -67,9 +38,9 @@ hiddenPlayer[0].onloadedmetadata = function() {
 	$('.time-finish').html(songLengthParse);
 };
 
-var items = songs.length - 1;
+/*var items = songs.length - 1;*/
 
-$('.next').on('click', function() {
+/*$('.next').on('click', function() {
 	var songOrder = hiddenPlayer.attr('order');
 
 	if (items == songOrder) {
@@ -96,9 +67,9 @@ $('.next').on('click', function() {
 		cover.attr('src', songCover);
 		hiddenPlayer.attr('order', num);
 	}
-});
+});*/
 
-$('.prev').on('click', function() {
+/*$('.prev').on('click', function() {
 	var songOrder = hiddenPlayer.attr('order');
 
 	if (songOrder == 0) {
@@ -120,7 +91,7 @@ $('.prev').on('click', function() {
 		artist.html(songArtist);
 		hiddenPlayer.attr('order', num);
 	}
-});
+});*/
 
 $(".play-button").click(function() {
 	$(this).toggleClass("paused");
