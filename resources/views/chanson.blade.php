@@ -18,7 +18,7 @@
         <p> </p>
     @else
 <div class="infoChanson">
-       <div class="chansonalbum"> Artiste<br> <a href='/album/{{$chanson->album->id}}'>{{$chanson->album->artiste->nom}}</a><br></div>
+       <div class="chansonalbum"> Artiste<br> <a href='/artiste/{{$chanson->album->artiste->id}}'>{{$chanson->album->artiste->nom}}</a><br></div>
     <div class="chansonalbum">Album<br> <a href='/album/{{$chanson->album->id}}'>{{$chanson->album->titre}}</a></div>
 </div>
     @endif 
@@ -47,7 +47,7 @@
 	<div id="player">
 		<div class="player-song">
 			<div class="title">{{$chanson->titre}}</div>
-			<div class="artist">{{$chanson->album->artiste->nom}}</div>
+			<div class="artist">@foreach($chanson->apparaitdans as $artiste) {{$artiste->nom}}, @endforeach</div>
 			<progress value="0" max="1"></progress>
 			<div class="timestamps">
 				<div class="time-now">0:00:00</div>
