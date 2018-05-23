@@ -168,9 +168,6 @@ float: right;
     font-family: roboto light;
 }
 
-div.container {
-    text-align: center;
-}
 
 .news{
     margin-bottom: 40px;
@@ -192,7 +189,7 @@ ul#nav a{
 div.container {
     text-align: center;
     position: relative;
-    padding-bottom: 30px;
+    padding-bottom: 15%;
 }    
 
 .artistes{
@@ -513,12 +510,7 @@ ol{
 }   
 
 .ajouter{
-    background-color: black;
     color: white;
-    padding-left: 2%;
-    padding-right: 15%;
-    padding-top: 1%;
-    padding-bottom: 1%;
 }
 
 
@@ -689,7 +681,7 @@ fieldset {
 #player {
   position: relative;
   z-index: 2;
-  width: 600px;
+  width: 100%;
   height: 150px;
   background-color: #fff;
   border-radius: 10px;
@@ -840,6 +832,150 @@ progress[value]::-webkit-progress-value {
   -webkit-transform: translate(0, 50%);
   transform: translate(0, 50%);
 }
+
+
+
+.btngerer{
+    color: white;
+    padding: 1%;
+}
+    
+td{
+        padding: 1%;
+    }
+
+.t{
+    margin: 5%;
+    display: block;
+    padding-right: 5%;
+}
+
+tbody{
+    background-color: white;
+    }
+
+.center{
+    margin: 1% auto;
+    width: 50%;
+    text-align: center;
+    position: relative;
+
+}
+
+.buton{
+    color: white;
+    background: black;
+    font-size: 1.1em;
+    text-decoration: none;
+    position: relative;
+    display: block;
+    text-align: center;
+    cursor: pointer;
+    -webkit-transition: 500ms all ease-ot;
+    -moz-transition: 500ms all ease-out;
+    -o-transition: 500ms all ease-out;
+    transition: 500ms ease-out;
+    padding-top: 1em;
+    padding-left: 15%;
+    padding-right: 15%;
+    padding-bottom: 1em;
+}
+
+.buton2{
+    color: white;
+    background: black;
+    font-size: 1.1em;
+    text-decoration: none;
+    position: relative;
+    display: block;
+    text-align: center;
+    cursor: pointer;
+    -webkit-transition: 500ms all ease-ot;
+    -moz-transition: 500ms all ease-out;
+    -o-transition: 500ms all ease-out;
+    transition: 500ms ease-out;
+    padding-top: 10%;
+    padding-bottom: 10%;
+    margin-bottom: 5%;
+}
+
+.hover::after,.hover::before,
+.text::before,.text::after{
+  content:'';
+  box-sizing:border-box;
+  position:absolute;
+  background:white;
+  -webkit-transition:500ms all eases ;
+  -moz-transition:500ms all ease-out ;
+  -o-transition:500ms all ease-out ;
+  transition: 500ms all ease-out;
+}
+
+.hover::after{
+  right:0;
+  bottom:0;
+  width:0;
+  height:3px;
+}
+
+.hover::before{
+  right:0;
+  bottom:0;
+  height:0;
+  width:3px;
+}
+
+.text::after{
+  top:0;
+  left:0;
+  width:0px;
+  height:3px;
+}
+
+.text::before{
+  top:0;
+  left:0;
+  height:0px;
+  width:3px;
+}
+
+.buton:hover .hover::after{
+  width:100%;
+  height:3px;
+}
+
+.buton:hover .text::after{
+  width:100%;
+  height:3px;
+}
+
+.buton:hover .text::before{
+  height:100%;
+  width:3px;
+}
+
+.buton:hover .hover::before{
+  height:100%;
+  width:3px;
+}
+
+.buton:hover .text,
+.buton:hover .fa-home{
+  color:white;
+}
+
+.buton:hover .fa-plus-circle{
+  -webkit-animation-name: spin;
+  -webkit-animation-duration: 300ms;
+  -webkit-animation-iteration-count: 1;
+  -webkit-animation-timing-function: ease-out;
+}
+
+@-webkit-keyframes spin {
+    from { -webkit-transform: rotate(0deg); }
+    to { -webkit-transform: rotate(360deg); }	
+}
+
 
 
 
@@ -1086,10 +1222,13 @@ ul#nav li{
     grid-template-columns: 1fr;
     grid-gap: 20px;
     margin-top: 5%;
+    margin-bottom: 3%;
         grid-template-areas:
                 "hd"
                 "main"
                 "ft";
+    margin-left: 20%;
+    margin-right: 20%;
 }   
     
 .iconesadmin{
@@ -1099,5 +1238,57 @@ ul#nav li{
     margin-right:auto;
 }
 
-    
+    #player {
+  position: relative;
+  z-index: 2;
+  width: 600px;
+  height: 150px;
+  background-color: #fff;
+  border-radius: 10px;
+  display: flex;
+    margin: auto;
 }
+    
+    div.container {
+    padding-bottom: 0%;
+} 
+    
+.center{
+    margin: 1% auto;
+    width: 25%;
+    text-align: center;
+    position: relative;
+
+}
+    
+    .t{
+    display: inline-block;
+    margin-bottom: 2%;
+    }
+     
+
+    .buton2{
+color: white;
+    background: black;
+    font-size: 1.1em;
+    text-decoration: none;
+    position: relative;
+    display: inline-block;
+    text-align: center;
+    cursor: pointer;
+    -webkit-transition: 500ms all ease-ot;
+    -moz-transition: 500ms all ease-out;
+    -o-transition: 500ms all ease-out;
+    transition: 500ms ease-out;
+    padding-top: 1em;
+    padding-left: 5%;
+    padding-right: 5%; 
+    padding-bottom: 1em;
+    }
+}
+    th{
+    font-family: roboto thin;
+    text-transform: uppercase;
+    font-size: 20px;
+    }  
+

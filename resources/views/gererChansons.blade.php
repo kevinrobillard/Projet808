@@ -5,12 +5,20 @@
     <h1>GERER LES CHANSONS</h1>
     <p>Choisissez l'action à effectuer</p>  
     
-
-    <a href="/interfaceAdmin/gererChansons/ajouter"><image class="icones" img src=""></image>Ajouter</a>
-    <table border=1>
+<div class="center">
+  
+<span class="buton">
+<i class="fa fa-plus-circle" aria-hidden="true"></i>
+  <span class="hover"></span>
+    <span class="text"><a class="ajouter" href="/interfaceAdmin/gererChansons/ajouter">Ajouter</a></span>
+</span>
+  
+</div>
+  
+<div id='gridtab'>
+<table>
         <tr>
             <th>Titre</th>
-            <th>Duree</th>
             <th>Album</th>
             <th>Artiste</th>
             <th>Actions</th>
@@ -18,16 +26,15 @@
         @foreach($chansons as $chanson)
             <tr>
                 <td><a href='/chanson/{{$chanson->id}}'>{{$chanson->titre}}</a></td>
-                <td>{{$chanson->duree}}</td>
                 <td><a href='/album/{{$chanson->album->id}}'>{{$chanson->album->titre}}</a></td>
                 <td><a href='/artiste/{{$chanson->album->artiste->id}}'>{{$chanson->album->artiste->nom}}</a></td>
                 <td>
-                    <a href='/chanson/{{$chanson->id}}'>Voir</a>
-                    <a href='/interfaceAdmin/gererChansons/{{$chanson->id}}/modifier'>Modifier</a>
-                    <a href='/interfaceAdmin/gererChansons/{{$chanson->id}}/supprimer'>Supprimer</a>
+                    <div class="buton2"><a class="btngerer" href='/chanson/{{$chanson->id}}'>Voir</a></div>
+                    <div class="buton2"><a class="btngerer" href='/interfaceAdmin/gererChansons/{{$chanson->id}}/modifier'>Modifier</a></div>
+                    <div class="buton2"><a class="btngerer" href='/interfaceAdmin/gererChansons/{{$chanson->id}}/supprimer'>Supprimer</a></div>
                 </td>
             </tr>
         @endforeach
     </table>
-
+</div>
 @endsection

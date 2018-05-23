@@ -4,10 +4,19 @@
     <h1>GERER LES ARTISTES</h1>
     <p>Choisissez l'action à effectuer</p>  
 
-
-    <a class="ajouter" href="/interfaceAdmin/gererArtistes/ajouter"><image class="iconeajouter" img src="/img/plus.png" alt="Ajouter un artiste"></image>Ajouter</a>
 <div id='gridtab'>
-    <table border=1>
+<div class="center">
+  
+<span class="buton">
+<i class="fa fa-plus-circle" aria-hidden="true"></i>
+  <span class="hover"></span>
+    <span class="text"><a class="ajouter" href="/interfaceAdmin/gererArtistes/ajouter">Ajouter</a></span>
+</span>
+  
+</div>
+
+
+    <table>
         <tr>
             <th>Artiste</th>
             <th>Date de naissance</th>
@@ -18,9 +27,9 @@
                 <td><a href='/artiste/{{$artiste->id}}'>{{$artiste->nom}}</a></td>
                 <td>{{$artiste->dateNaissance}}</td>
                 <td>
-                    <a href='/artiste/{{$artiste->id}}'>Voir</a>
-                    <a href='/interfaceAdmin/gererArtistes/{{$artiste->id}}/modifier'>Modifier</a>
-                    <a href='/interfaceAdmin/gererArtistes/{{$artiste->id}}/supprimer'>Supprimer</a>
+                    <div class="buton2"><a class="btngerer" href='/artiste/{{$artiste->id}}'>Voir</a></div>
+                    <div class="buton2"><a class="btngerer" href='/interfaceAdmin/gererArtistes/{{$artiste->id}}/modifier'>Modifier</a></div>
+                    <div class="buton2"><a class="btngerer" href='/interfaceAdmin/gererArtistes/{{$artiste->id}}/supprimer'>Supprimer</a></div>
                 </td>
             </tr>
         @endforeach
