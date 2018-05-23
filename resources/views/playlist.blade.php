@@ -17,7 +17,7 @@
             @foreach($playlist->contient as $chanson)
                 <div class="main">
                     <a href='/chanson/{{$chanson->id}}'><img src='{{$chanson->pochette}}'></a><br>
-                    <audio controls="controls"> <source src="/music/Friday.mp3" type="audio/mp3" />Votre navigateur n'est pas compatible</audio><br>
+                    <audio controls="controls"> <source src="/{{$chanson->audio}}" type="audio/mp3" />Votre navigateur n'est pas compatible</audio><br>
                     <a class="artistealbum" href='/chanson/{{$chanson->id}}'>{{$chanson->titre}}</a><br>
                     <a href='/album/{{$chanson->album->id}}'>{{$chanson->album->titre}}</a> -
                     <a href='/artiste/{{$chanson->album->artiste->id}}'>{{$chanson->album->artiste->nom}}</a>

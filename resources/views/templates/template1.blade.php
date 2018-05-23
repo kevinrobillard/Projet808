@@ -16,7 +16,7 @@
 
 <body>
 <header class="header">
-  <a href="logo.png" class="logo">Projet 808</a>
+  <a href="/" class="logo">Projet 808</a>
   <input class="menu-btn" type="checkbox" id="menu-btn" />
   <label class="menu-icon" for="menu-btn"><span class="navicon"></span></label>
   <ul class="menu">
